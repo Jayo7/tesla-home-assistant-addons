@@ -17,6 +17,9 @@ Home-Assistant-Green-Add-on fuer Teslas offiziellen `fleet-telemetry` Server.
    - `server_key`: `/ssl/privkey.pem`
 4. Add-on starten
 
+## Troubleshooting
+- Wenn vorher `cannot execute: required file not found` kam, Add-on aktualisieren oder neu bauen lassen. Das war der alte Binary-Base-Image-Mismatch.
+
 ## Danach
 Wenn das Add-on laeuft, aus dem Tesla-Charging-App-Repo die Fahrzeug-Config pushen:
 

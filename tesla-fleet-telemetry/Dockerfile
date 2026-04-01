@@ -1,12 +1,11 @@
-ARG BUILD_FROM
+FROM golang:1.24-alpine AS builder
 
-FROM tesla/fleet-telemetry:latest AS upstream
+WORKDIR /src
+COPY launcher.go /src/launcher.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o /out/launcher /src/launcher.go
 
-FROM ${BUILD_FROM}
+FROM tesla/fleet-telemetry:latest
 
-COPY --from=upstream /fleet-telemetry /usr/local/bin/fleet-telemetry
-COPY run.sh /run.sh
+COPY --from=builder /out/launcher /launcher
 
-RUN chmod a+x /run.sh
-
-CMD [ "/run.sh" ]
+CMD ["/launcher"]
