@@ -1,0 +1,38 @@
+{
+  "name": "Tesla Fleet Telemetry",
+  "version": "0.1.0",
+  "slug": "tesla_fleet_telemetry",
+  "description": "Run Teslas official fleet-telemetry server on Home Assistant Green.",
+  "url": "https://github.com/teslamotors/fleet-telemetry",
+  "startup": "services",
+  "boot": "auto",
+  "init": false,
+  "arch": [
+    "aarch64"
+  ],
+  "ports": {
+    "443/tcp": 443
+  },
+  "ports_description": {
+    "443/tcp": "Public HTTPS port for incoming Tesla Fleet Telemetry traffic"
+  },
+  "map": [
+    "ssl:ro"
+  ],
+  "options": {
+    "host": "telemetry.mein-lila-tablett.at",
+    "port": 443,
+    "namespace": "tesla_charging_app",
+    "log_level": "info",
+    "server_cert": "/ssl/fullchain.pem",
+    "server_key": "/ssl/privkey.pem"
+  },
+  "schema": {
+    "host": "str",
+    "port": "port",
+    "namespace": "str",
+    "log_level": "list(trace|debug|info|warn|error)",
+    "server_cert": "str",
+    "server_key": "str"
+  }
+}
