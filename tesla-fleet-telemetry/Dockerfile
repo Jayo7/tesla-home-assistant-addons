@@ -8,4 +8,6 @@ FROM tesla/fleet-telemetry:latest
 
 COPY --from=builder /out/launcher /launcher
 
+USER root
+
 CMD ["/launcher"]

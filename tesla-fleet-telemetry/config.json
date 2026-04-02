@@ -1,6 +1,6 @@
 {
   "name": "Tesla Fleet Telemetry",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "slug": "tesla_fleet_telemetry",
   "description": "Run Teslas official fleet-telemetry server on Home Assistant Green.",
   "url": "https://github.com/teslamotors/fleet-telemetry",
